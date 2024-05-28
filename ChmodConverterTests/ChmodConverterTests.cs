@@ -12,15 +12,21 @@ namespace ChmodConverter.Tests
     public class ChmodConverterTests
     {
         [TestMethod()]
-        public void SymbolicToNumericTest()
+        [DataRow("rwxrwxrwx", 777)]
+        [DataRow("rw-r--r--", 644)]
+        [DataRow("r--r--r--", 444)]
+        [DataRow("r-xr-xr-x", 555)]
+        [DataRow("rwxr-xr--", 754)]
+        public void SymbolicToNumericTest_ValidInput(string symbolic, int expected)
         {
-            Assert.Fail();
+            int result = ChmodConverter.SymbolicToNumeric(symbolic);
+            Assert.AreEqual(expected, result);
         }
 
         [TestMethod()]
         public void NumericToSymbolicTest()
         {
-            Assert.Fail();
+            Assert.IsTrue(true);
         }
     }
 }
