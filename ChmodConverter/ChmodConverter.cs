@@ -15,17 +15,14 @@ namespace ChmodConverter
             {
                 throw new ArgumentException("Invalid lenght of argument. \n Argument needs to be 9 symbols long.");
             }
-            string user = symbolicValue.Substring(0, 2);
-            string group = symbolicValue.Substring(3, 5);
-            string others = symbolicValue.Substring(6);
-            string[] rights = [user, group, others];
             int result = 0;
-            foreach (string right in rights)
+            for(int i = 0; i < 3; i++)
             {
                 int sum = 0;
-                if(right[0] == 'r') sum += 4;
-                if(right[1] == 'w') sum += 2;
-                if(right[2] == 'x') sum += 1;
+                if(symbolicValue[i * 3] == 'r') sum += 4;
+                if(symbolicValue[i * 3 + 1] == 'w') sum += 2;
+                if(symbolicValue[i * 3 + 2] == 'x') sum += 1;
+                result = result * 10 + sum;
             }
 
             return result;
