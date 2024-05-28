@@ -30,7 +30,21 @@ namespace ChmodConverter
 
         public static string NumericToSymbolic(int numericValue)
         {
-            return "";
+            if (numericValue < 0 || numericValue > 777)
+                throw new ArgumentOutOfRangeException("Numeric in range of 0 to 777");
+
+            char[] symbolicValue = new char[9];
+            int[] modes = { numericValue / 100, (numericValue / 10) % 10, numericValue % 10 };
+
+            for (int i = 0; i < 3; i++)
+            {
+                int value = modes[i];
+                symbolicValue[i * 3] = (value & 4) != 0 ? 'r' : '-';
+                symbolicValue[i * 3 + 1] = (value & 2) != 0 ? 'w' : '-';
+                symbolicValue[i * 3 + 2] = (value & 1) != 0 ? 'x' : '-';
+            }
+
+            return new string(symbolicValue);
         }
     }
 }
