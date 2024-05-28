@@ -32,5 +32,26 @@ namespace ChmodConverter.Tests
             string result = ChmodConverter.NumericToSymbolic(numeric);
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
+        [DataRow("")]
+        [DataRow("rwx")]
+        [DataRow("costggamcostam")]
+        [DataRow("rwxrwxrwggggxr")]
+        public void SymbolicToNumericTest_InvalidInput(string symbolic)
+        {
+            ChmodConverter.SymbolicToNumeric(symbolic);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [DataRow(-109)]
+        [DataRow(888)]
+        [DataRow(999)]
+        public void NumericToSymbolicTest_InvalidInput(int numeric)
+        {
+            ChmodConverter.NumericToSymbolic(numeric);
+        }
     }
 }

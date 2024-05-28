@@ -11,7 +11,7 @@ namespace ChmodConverter
 
         public static int SymbolicToNumeric(string symbolicValue)
         {
-            if (symbolicValue == null)
+            if (symbolicValue.Length != 9)
             {
                 throw new ArgumentException("Invalid lenght of argument. \n Argument needs to be 9 symbols long.");
             }
