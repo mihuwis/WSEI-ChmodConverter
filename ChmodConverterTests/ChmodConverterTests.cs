@@ -12,11 +12,10 @@ namespace ChmodConverter.Tests
     public class ChmodConverterTests
     {
         [TestMethod()]
-        [DataRow("rwxrwxrwx", 777)]
-        [DataRow("rw-r--r--", 644)]
-        [DataRow("r--r--r--", 444)]
-        [DataRow("r-xr-xr-x", 555)]
-        [DataRow("rwxr-xr--", 754)]
+        [DataRow("r--rw-rwx", 467)]
+        [DataRow("rwx--x--x", 711)]
+        [DataRow("rw-rw-r-x", 665)]
+        [DataRow("r-xrwxr-x", 575)]
         public void SymbolicToNumericTest_ValidInput(string symbolic, int expected)
         {
             int result = ChmodConverter.SymbolicToNumeric(symbolic);
@@ -24,9 +23,14 @@ namespace ChmodConverter.Tests
         }
 
         [TestMethod()]
-        public void NumericToSymbolicTest()
+        [DataRow(467, "r--rw-rwx")]
+        [DataRow(711, "rwx--x--x")]
+        [DataRow(665, "rw-rw-r-x")]
+        [DataRow(575, "r-xrwxr-x")]
+        public void NumericToSymbolicTest_ValidInput(int numeric, string expected)
         {
-            Assert.IsTrue(true);
+            string result = ChmodConverter.NumericToSymbolic(numeric);
+            Assert.AreEqual(expected, result);
         }
     }
 }
