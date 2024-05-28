@@ -16,6 +16,7 @@ namespace ChmodConverter.Tests
         [DataRow("rwx--x--x", 711)]
         [DataRow("rw-rw-r-x", 665)]
         [DataRow("r-xrwxr-x", 575)]
+        [DataRow("-cos-tam-", 000)]
         public void SymbolicToNumericTest_ValidInput(string symbolic, int expected)
         {
             int result = ChmodConverter.SymbolicToNumeric(symbolic);
