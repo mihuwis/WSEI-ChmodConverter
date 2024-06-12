@@ -9,43 +9,56 @@
 
     <Grid>
         <StackPanel Margin="10">
-            <TextBlock Text="Permissions:" />
-            <TextBox Name="NumericPermissionsTextBox" TextChanged="NumericPermissionsTextBox_TextChanged" />
-            <TextBox Name="SymbolicPermissionsTextBox" TextChanged="SymbolicPermissionsTextBox_TextChanged" />
+            <Grid>
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Text="Permissions:" Width="80" />
+                <TextBox Grid.Column="1"  x:Name="NumericPermissionsTextBox" TextChanged="NumericPermissionsTextBox_TextChanged" Width="234" />
+                <TextBox Grid.Column="2" x:Name="SymbolicPermissionsTextBox" TextChanged="SymbolicPermissionsTextBox_TextChanged" Width="234" />
+            </Grid>
             <Grid Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MinWidth="102"/>
-                <ColumnDefinition Width="76*"/>
-                <ColumnDefinition Width="140*"/>
-                <ColumnDefinition Width="123*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MinHeight="31.09"/>
-                <RowDefinition Height="Auto" MinHeight="15.96"/>
-            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="102"/>
+                    <ColumnDefinition Width="76*"/>
+                    <ColumnDefinition Width="140*"/>
+                    <ColumnDefinition Width="123*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" MinHeight="31.09"/>
+                    <RowDefinition Height="Auto" MinHeight="15.96"/>
+                    <RowDefinition Height="Auto" MinHeight="15.96"/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="1" Text="Owner" HorizontalAlignment="Center" Margin="0,0,0,16" Grid.RowSpan="2" Width="34"/>
-            <TextBlock Grid.Column="2" Text="Group" HorizontalAlignment="Center" Margin="0,0,0,16" Grid.RowSpan="2" Width="34"/>
-            <TextBlock Grid.Column="3" Text="Other" HorizontalAlignment="Center" Margin="0,0,0,16" Grid.RowSpan="2" Width="30"/>
+                <TextBlock Grid.Column="1" Text="Owner" HorizontalAlignment="Center" Margin="0,0,0,16" Grid.RowSpan="2" Width="34"/>
+                <TextBlock Grid.Column="2" Text="Group" HorizontalAlignment="Center" Margin="0,0,0,16" Grid.RowSpan="2" Width="34"/>
+                <TextBlock Grid.Column="3" Text="Other" HorizontalAlignment="Center" Margin="0,0,0,16" Grid.RowSpan="2" Width="30"/>
 
-            <TextBlock Grid.Row="1" Text="Read" Margin="0,1,0,16" Grid.RowSpan="2"/>
-            <CheckBox Grid.Row="1" Grid.Column="1" Name="OwnerReadCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="0,1,0,16" Grid.RowSpan="2"/>
-            <CheckBox Grid.Row="1" Grid.Column="2" Name="GroupReadCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="30,1,0,16" Grid.RowSpan="2"/>
-            <CheckBox Grid.Row="1" Grid.Column="3" Name="OtherReadCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="0,1,0,16" Grid.RowSpan="2"/>
+                <TextBlock Grid.Row="1" Text="Read" Margin="0,1,0,16" Grid.RowSpan="2"/>
+                <CheckBox Grid.Row="1" Grid.Column="1" x:Name="OwnerReadCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="0,1,0,16" Grid.RowSpan="2"/>
+                <CheckBox Grid.Row="1" Grid.Column="2" x:Name="GroupReadCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="30,1,0,16" Grid.RowSpan="2"/>
+                <CheckBox Grid.Row="1" Grid.Column="3" x:Name="OtherReadCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="0,1,0,16" Grid.RowSpan="2"/>
 
-            <TextBlock Grid.Row="2" Text="Write"/>
-            <CheckBox Grid.Row="2" Grid.Column="1" Name="OwnerWriteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
-            <CheckBox Grid.Row="2" Grid.Column="2" Name="GroupWriteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="30,0,0,0"/>
-            <CheckBox Grid.Row="2" Grid.Column="3" Name="OtherWriteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+                <TextBlock Grid.Row="2" Text="Write"/>
+                <CheckBox Grid.Row="2" Grid.Column="1" x:Name="OwnerWriteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+                <CheckBox Grid.Row="2" Grid.Column="2" x:Name="GroupWriteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="30,0,0,0"/>
+                <CheckBox Grid.Row="2" Grid.Column="3" x:Name="OtherWriteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
 
-            <TextBlock Grid.Row="2" Text="Execute" Margin="0,31,0,-31"/>
-            <CheckBox Grid.Row="2" Grid.Column="1" Name="OwnerExecuteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="0,31,0,-31"/>
-            <CheckBox Grid.Row="2" Grid.Column="2" Name="GroupExecuteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="30,31,0,-31"/>
-            <CheckBox Grid.Row="2" Grid.Column="3" Name="OtherExecuteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="5,31,-5,-31"/>
+                <TextBlock Grid.Row="2" Text="Execute" Margin="0,31,0,-31"/>
+                <CheckBox Grid.Row="2" Grid.Column="1" x:Name="OwnerExecuteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="0,31,0,-31"/>
+                <CheckBox Grid.Row="2" Grid.Column="2" x:Name="GroupExecuteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="30,31,0,-31"/>
+                <CheckBox Grid.Row="2" Grid.Column="3" x:Name="OtherExecuteCheckBox" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" Margin="5,31,-5,-31"/>
 
-        </Grid>
+            </Grid>
+
         </StackPanel>
     </Grid>
 </Window>
